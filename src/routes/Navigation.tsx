@@ -1,4 +1,6 @@
 import { BrowserRouter, Navigate, Routes, Route, NavLink} from "react-router-dom"
+import { FormikAbstraction, FormikComponents, FormikYupPage, RegisterPage } from "../03-forms/pages";
+
 import logo from "../logo.svg";
 
 export const Navigation = () => {
@@ -17,12 +19,28 @@ export const Navigation = () => {
                         <li>
                             <NavLink to="/users" className={ ({isActive}) => isActive ? 'nav-active' : '' }>Users</NavLink>
                         </li>
+                        <li>
+                            <NavLink to="/register" className={ ({isActive}) => isActive ? 'nav-active' : '' }>Register</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/register-yup" className={ ({isActive}) => isActive ? 'nav-active' : '' }>Formik Yup</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/formik-components" className={ ({isActive}) => isActive ? 'nav-active' : '' }>Formik Components</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/formik-abstraction" className={ ({isActive}) => isActive ? 'nav-active' : '' }>Formik Abstraction</NavLink>
+                        </li>
                     </ul>
                 </nav>
                 <Routes>
                     <Route path="about" element={<h1>About page</h1>} />
                     <Route path="users" element={<h1>User page</h1>} />
                     <Route path="home" element={<h1>Homepage</h1>}/>
+                    <Route path="register" element={<RegisterPage />}/>
+                    <Route path="register-yup" element={<FormikYupPage />}/>
+                    <Route path="formik-components" element={<FormikComponents />}/>
+                    <Route path="formik-abstraction" element={<FormikAbstraction />}/>
                     <Route path="/*" element={<Navigate to="/home" replace />}/>
                 </Routes>
             </div>
